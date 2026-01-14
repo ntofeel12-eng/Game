@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Team Code Game - Prototype</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 20px; }
+    #players { margin-top: 10px; }
+    .player { padding: 6px; border: 1px solid #ddd; margin: 4px 0; }
+    #log { white-space: pre-wrap; background:#f7f7f7; padding:10px; height:150px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>Team Code Game (up to 10 players)</h1>
+
+  <div>
+    <label>Your name: <input id="name" value="Player" /></label>
+  </div>
+
+  <div style="margin-top:10px">
+    <button id="createBtn">Create Room (Host)</button>
+    <input id="joinCode" placeholder="ROOM CODE" style="text-transform:uppercase" />
+    <button id="joinBtn">Join Room</button>
+  </div>
+
+  <div id="roomInfo" style="display:none; margin-top:20px;">
+    <h3>Room <span id="roomCode"></span></h3>
+    <div>Host: <span id="hostId"></span></div>
+    <div id="players"></div>
+    <div style="margin-top:8px">
+      <button id="startBtn">Start Game (Host only)</button>
+      <button id="leaveBtn">Leave Room</button>
+    </div>
+    <div style="margin-top:10px">
+      <label>Send game action: <input id="actionText" /> <button id="sendAction">Send</button></label>
+    </div>
+  </div>
+
+  <h4>Log</h4>
+  <div id="log"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
